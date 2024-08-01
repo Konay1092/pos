@@ -1,3 +1,7 @@
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
 <div class="header">
     <div class="header-left">
         <div class="menu-icon dw dw-menu"></div>
@@ -107,15 +111,41 @@
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                     <span class="user-icon">
-                        <img src="vendors/images/photo1.jpg" alt="">
+                        {{-- <img src="{{asset('vendors/images/photo1.jpg')}}" alt=""> --}}
+                        <img src="{{ Auth::user()->profile ? asset(Auth::user()->profile) : asset('vendors/images/profile/default.avif') }}" alt="{{ Auth::user()->name }}" class="avatar-photo">
+
+
+
+
+
                     </span>
-                    <span class="user-name">Example</span>
+                    <span class="user-name">{{ Auth::user()->name }}</span>
+
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
+                    <a class="dropdown-item" href="{{route('admin.profile')}}"><i class="dw dw-user1"></i> Profile</a>
+                    <a class="dropdown-item" href="{{route('admin.change-password')}}"><i class="fas fa-key"></i> Change Password</a>
+
+
+
                     <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
                     <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-                    <a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Log Out</a>
+
+                    {{-- <a class="dropdown-item" href="{{ route('logout') }}"><i class="dw dw-logout"></i> Log Out</a> --}}
+
+                    {{-- <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="dropdown-item" style="border: none; background: transparent; padding: 0;">
+                        <i class="dw dw-logout"></i> Log Out
+                    </button>
+
+
+                    </form> --}}
+                    <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="dw dw-logout"></i> Log Out
+                    </a>
+
+
                 </div>
             </div>
         </div>

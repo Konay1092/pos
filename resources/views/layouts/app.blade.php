@@ -15,11 +15,28 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
-    <link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/core.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/icon-font.min.css')}}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{asset('src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{asset('src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/style.css')}}">
+    <script src="https://kit.fontawesome.com/34ce5b6af8.js" crossorigin="anonymous"></script>
+
+
+
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    @yield('css')
+
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -36,9 +53,11 @@
     </script>
 
 
+
+
 </head>
 <body>
-    <div class="pre-loader">
+    {{-- <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo"><img src="vendors/images/deskapp-logo.svg" alt=""></div>
             <div class='loader-progress' id="progress_div">
@@ -49,19 +68,66 @@
                 Loading...
             </div>
         </div>
-    </div>
+    </div> --}}
     @yield('content')
     <!-- js -->
-    <script src="vendors/scripts/core.js"></script>
-    <script src="vendors/scripts/script.min.js"></script>
-    <script src="vendors/scripts/process.js"></script>
-    <script src="vendors/scripts/layout-settings.js"></script>
-    <script src="src/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-    <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-    <script src="vendors/scripts/dashboard.js"></script>
+    <script src="{{asset('vendors/scripts/core.js')}}"></script>
+
+
+    <script src="{{asset('vendors/scripts/script.min.js')}}"></script>
+
+
+    <script src="{{asset('vendors/scripts/process.js')}}"></script>
+
+
+    <script src="{{asset('vendors/scripts/layout-settings.js')}}"></script>
+
+
+    <script src="{{asset('src/plugins/apexcharts/apexcharts.min.js')}}"></script>
+
+
+    <script src="{{asset('src/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
+
+
+    <script src="{{asset('src/plugins/datatables/js/dataTables.bootstrap4.min.js')}}"></script>
+
+
+    <script src="{{asset('src/plugins/datatables/js/dataTables.responsive.min.js')}}"></script>
+
+
+    <script src="{{asset('src/plugins/datatables/js/responsive.bootstrap4.min.js')}}"></script>
+
+
+    <script src="{{asset('vendors/scripts/dashboard.js')}}"></script>
+
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch (type) {
+            case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+
+            case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+
+            case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+
+            case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break;
+        }
+        @endif
+
+    </script>
+
+    @yield('js')
 
 
 
