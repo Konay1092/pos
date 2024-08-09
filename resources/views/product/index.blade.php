@@ -12,6 +12,7 @@
 @include('components.header')
 <!--  Header End -->
 @include('components.right_sidebar')
+
 @include('components.left_sidebar')
 
 {{-- @dd($user); --}}
