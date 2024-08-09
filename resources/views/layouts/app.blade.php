@@ -3,6 +3,7 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -27,6 +28,9 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('vendors/styles/style.css')}}">
     <script src="https://kit.fontawesome.com/34ce5b6af8.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
+<script src="{{asset('/assets/tinymce/tinymce.min.js')}}" referrerpolicy="origin"></script>
+
 
 
 
@@ -99,6 +103,18 @@
 
 
     <script src="{{asset('vendors/scripts/dashboard.js')}}"></script>
+    {{-- <script src="{{asset('vendors/scripts/datatable-setting.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+
+
+
+    <link href="
+https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css
+" rel="stylesheet">
+
+
+
+
 
 
     <!-- Toastr JS -->

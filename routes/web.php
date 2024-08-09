@@ -1,11 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\user\UserController;
 use App\Http\Controllers\admin\auth\LoginController;
+use App\Http\Controllers\admin\user\AdminController;
+use App\Http\Controllers\admin\brand\BrandController;
 use App\Http\Controllers\admin\auth\RegisterController;
 use App\Http\Controllers\admin\home\HomePageController;
-use App\Http\Controllers\admin\user\AdminController;
-use App\Http\Controllers\admin\user\UserController;
+use App\Http\Controllers\admin\product\ProductController;
+use App\Http\Controllers\admin\category\CategoryController;
+use App\Http\Controllers\admin\category\SubcategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +42,11 @@ Route::middleware(['auth', 'admin'])->group(
         Route::get('/admin/role/users', [UserController::class, 'index'])->name('admin.user');
         Route::get('/admin/role/user/{id}', [UserController::class, 'userDetails'])->name('admin.user.show');
         Route::get('/admin/role/delete/user/{id}', [UserController::class, 'deleteUser'])->name('admin.user.delete');
+        Route::resource('/admin/brands', BrandController::class);
+        Route::resource('/admin/categories', CategoryController::class);
+        Route::resource('/admin/subcategories', SubcategoryController::class);
+        Route::resource('/admin/products', ProductController::class);
+        Route::post('admin/subcategories/fetch', [ProductController::class, 'fetchSubcategories'])->name('subcategories.fetch');
     }
 );
 

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('title','POS')
 @section('css')
-<!-- DataTables -->
-<link href="{{ asset('assets/datatable/lib/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+
 
 
 @section('content')
@@ -66,13 +65,17 @@
                                 @foreach($users as $key => $item)
                                 <tr>
                                     <td> {{ $i++}} </td>
-                                    <td> <img src="{{ asset($item->profile) }}" style="width: 60px; height: 50px;"> </td>
+                                    <td> <img src="{{ $item->image ? asset($item->image) : asset('vendors/images/profile/default.avif') }}" alt="{{ $item->name }}" width="80px" height="50px" />
+
+
+
+                                    </td>
                                     <td> {{ $item->name }} </td>
                                     <td> {{ $item->email }} </td>
                                     <td> {{ $item->phone }} </td>
                                     <td>{{$item->address}}</td>
                                     <td>
-                                        <a href="{{route('admin.user.show',$item->id)}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-eye"></i> </a>
+                                        <a href=" {{route('admin.user.show',$item->id)}}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-eye"></i> </a>
 
 
                                         <a href="{{route('admin.user.delete',$item->id)}}" class="btn btn-danger sm" title="Delete Data" id="delete"> <i class="fas fa-trash-alt"></i> </a>
@@ -109,9 +112,6 @@
 <script src="{{ asset('assets/datatable/js/datatables.init.js') }}"></script>
 
 
-<!-- Required datatable js -->
-<script src="{{ asset('assets/datatable/lib/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/datatalbe/lib/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
 <!-- buttons for Export datatable -->
 <script src="{{asset('src/plugins/datatables/js/dataTables.buttons.min.js')}}"></script>
