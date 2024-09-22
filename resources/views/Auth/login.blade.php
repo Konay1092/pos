@@ -4,9 +4,16 @@
 <div class="login-header box-shadow">
     <div class="container-fluid d-flex justify-content-between align-items-center">
         <div class="brand-logo">
-            <a href="login.html">
-                <img src="{{ asset('vendors/images/deskapp-logo.svg') }}" alt="">
+            <a href="{{route('admin.login')}}" style="color: #323232;text-transform: capitalize">
+                {{-- <img src="{{ asset('vendors/images/deskapp-logo.svg') }}" alt=""> --}}
+                 <img src="{{asset('vendors/images/logo/logo-dark.svg')}}" alt="" class="light-logo mr-2" width="50px" height="50px" >
+
+                <span style="text-transform: capitalize">Nadi Yoon Htike</span>
+
+
             </a>
+
+
         </div>
         <div class="login-menu">
             <ul>
@@ -25,7 +32,7 @@
             <div class="col-md-6 col-lg-5">
                 <div class="login-box bg-white box-shadow border-radius-10">
                     <div class="login-title">
-                        <h2 class="text-center text-primary">Login To DeskApp</h2>
+                        <h2 class="text-center text-primary">Login To <span style="">Admin Dashboard</span></h2>
                     </div>
 
                     <!-- Display Validation Errors -->

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','POS')
+{{-- @section('title','POS') --}}
 @section('css')
 
 
@@ -53,8 +53,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">Sl</th>
-                                    <th class="text-center">Brand Name</th>
                                     <th class="text-center"> Brand Image</th>
+                                    <th class="text-center">Brand Name</th>
+
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -63,8 +64,9 @@
                                 @foreach($brands as $key => $item)
                                 <tr>
                                     <td class="text-center">{{ $i++ }}</td>
+                                     <td class="text-center"><img src="{{ asset($item->image) }}"  width="70" height="70" ></td>
                                     <td class="text-center">{{ $item->name }}</td>
-                                    <td class="text-center"><img src="{{ asset($item->image) }}" style="width: 100px; height: 60px;"></td>
+
                                     <td class="text-center">
                                         <a href="{{ route('brands.show', $item->id) }}" class="btn btn-info sm" title="View Data"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('brands.edit', $item->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-pencil-alt"></i></a>

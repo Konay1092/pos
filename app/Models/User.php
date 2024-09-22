@@ -34,7 +34,9 @@ class User extends Authenticatable
         'facebook_url',
         'viber',
         'telegram',
-        'updated_at'
+        'updated_at',
+        'password',
+        'role'
 
 
     ];

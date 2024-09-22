@@ -128,6 +128,13 @@ class LoginController extends Controller
                 'alert-type' => 'error'
             );
             return redirect()->back()->with($notification);
+        } else if ($user->role == 'user') {
+            // dd('hit');
+            $notification = array(
+                'message' => 'Please fill your email address',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
         }
 
         // Retrieve the username

@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('facebook_url')->nullable();
             $table->string('viber')->nullable();
             $table->string('telegram')->nullable();
-            $table->int('code');
+            $table->integer('code');
             $table->rememberToken();
             $table->timestamps();
         });

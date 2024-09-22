@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','POS')
+{{-- @section('title','Nadi Yoon Htike') --}}
 @section('css')
 
 
@@ -131,13 +131,28 @@
 
                                     </td>
                                    <td class="text-center">
-                                       @foreach($item->images as $image)
-                                       {{-- {{ $item->image ? asset($item->image) : asset('vendors/images/profile/default.avif') }} --}}
-                                      <div class="card card-box my-1">
-                                         <img src="{{ asset($image->path) }}" width="100" height="100"  alt="image"  >
-                                      </div>
-
-                                       @endforeach
+@php($imagesCount = count($item->images))
+                                      @foreach($item->images as $key => $image)
+                @if($key < 2)
+                    <div class="my-1">
+                        <img src="{{ asset($image->path) }}" width="100" height="100" alt="image">
+                    </div>
+                @elseif($key == 2)
+                    <div class="dropdown d-inline-block">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            + {{ $imagesCount - 2 }} more
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @for($i = $key; $i < $imagesCount; $i++)
+                                <a class="dropdown-item" href="#">
+                                    <img src="{{ asset($item->images[$i]->path) }}" width="100" height="100" alt="image">
+                                </a>
+                            @endfor
+                        </div>
+                    </div>
+                    @break
+                @endif
+            @endforeach
 
                                    </td>
                                    <td class="text-center">{{ $item->name }}</td>

@@ -1,10 +1,14 @@
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="{{route('home')}}">
-            <img src="{{asset('vendors/images/logo/deskapp-logo.svg')}}" alt="" class="dark-logo">
-            <img src="{{asset('vendors/images/logo/deskapp-logo-white.svg')}}" alt="" class="light-logo">
+        <a href="{{route('home')}}" >
+            {{-- <img src="{{asset('vendors/images/logo/logo-dark.svg')}}" alt="" class="dark-logo"> --}}
+            {{-- <img src="{{asset('vendors/images/logo/deskapp-logo-white.svg')}}" alt="" class="light-logo"> --}}
+            <img src="{{asset('vendors/images/logo/logo-dark.svg')}}" alt="" class="dark-logo" width="50px" height="50px">
 
+            <img src="{{asset('vendors/images/logo/logo-dark.svg')}}" alt="" class="light-logo" width="50px" height="50px">
 
+            <span class="" style="color:rgb(61, 61, 231)">Nadi Yoon Htike
+</span>
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>
@@ -96,7 +100,9 @@
             </li> --}}
             <li class="dropdown {{ request()->routeIs('brands.*') ? 'active' : '' }}">
                 <a href="javascript:;" class="dropdown-toggle">
-                    <span class="micon dw dw-house-1"></span><span class="mtext">Brand</span>
+                    {{-- ion-close-round --}}
+                    <span class="micon dw dw-shopping-basket"></span><span class="mtext">Brand</span>
+
                 </a>
                 <ul class="submenu">
                     <li><a href="{{ route('brands.index') }}" class="{{ request()->routeIs('brands.index') ? 'active' : '' }}">All Brand</a></li>
@@ -116,7 +122,7 @@
 
             <li class="dropdown {{ request()->routeIs('categories.*') ? 'active' : '' }}">
                 <a href="javascript:;" class="dropdown-toggle">
-                    <span class="micon dw dw-house-1"></span><span class="mtext">Category</span>
+                    <span class="micon dw dw-chair"></span><span class="mtext">Category</span>
                 </a>
                 <ul class="submenu">
                     <li><a href="{{ route('categories.index') }}" class="{{ request()->routeIs('categories.index') ? 'active' : '' }}">All Category</a></li>

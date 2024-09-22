@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','POS')
+{{-- @section('title','POS') --}}
 @section('content')
 <!--  Body Wrapper -->
 
